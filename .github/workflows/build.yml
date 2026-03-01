@@ -24,14 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install plyer
         pip install maliang
-        pip install pywebview
         pip install pyinstaller
         pip install requests
-        pip install requests_toolbelt
         
     - name: 使用PyInstaller构建可执行文件（包含资源）
       run: |
-        pyinstaller -w -F -i logo.ico --hidden-import plyer.platforms.win.notification --add-data "webUI;webUI" --add-data "lanzou_api;lanzou_api" --add-data "assets;assets" Conduit.py
+        pyinstaller -w -F -i logo.ico --hidden-import plyer.platforms.win.notification LiteLoaderQQNT_installer.py
     - name: 将资源文件复制到dist目录
       run: |
         copy .\uninstall.bat dist\
